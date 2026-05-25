@@ -1,0 +1,18 @@
+{
+  "name": "tucn-cc-apps-tooling",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Repository-level tooling configuration",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,md,yml,yaml}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.9"
+  }
+}

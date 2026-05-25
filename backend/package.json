@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Azure Functions backend for Cognito role/device authorization demo",
+  "main": "Root/index.js",
+  "scripts": {
+    "start": "func start --javascript",
+    "check": "node -c Root/index.js && node -c Profile/index.js && node -c Data/index.js && node -c shared/auth.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@azure/identity": "^4.13.1",
+    "@azure/storage-blob": "^12.31.0",
+    "jsonwebtoken": "^9.0.3",
+    "jwks-rsa": "^4.0.1"
+  }
+}

@@ -1,0 +1,31 @@
+services:
+  backend:
+    platform: linux/amd64
+    build:
+      context: ./backend
+    image: tucn-cc-backend-api-local
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3001:80"
+    volumes:
+      - ./docs/datasets:/app/docs/datasets
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_BASE: ${REACT_APP_API_BASE}
+        REACT_APP_COGNITO_AUTHORITY: ${REACT_APP_COGNITO_AUTHORITY}
+        REACT_APP_COGNITO_CLIENT_ID: ${REACT_APP_COGNITO_CLIENT_ID}
+        REACT_APP_COGNITO_DOMAIN: ${REACT_APP_COGNITO_DOMAIN}
+        REACT_APP_OIDC_REDIRECT_URI: ${REACT_APP_OIDC_REDIRECT_URI}
+        REACT_APP_OIDC_SCOPE: ${REACT_APP_OIDC_SCOPE}
+        REACT_APP_LOGOUT_URI: ${REACT_APP_LOGOUT_URI}
+    image: tucn-cc-frontend-local
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    restart: unless-stopped

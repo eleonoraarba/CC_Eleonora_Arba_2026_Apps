@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "COGNITO_REGION": "eu-central-1",
+    "COGNITO_USER_POOL_ID": "eu-central-1_example",
+    "COGNITO_CLIENT_ID": "your-app-client-id",
+    "CORS_ORIGIN": "http://localhost:3000"
+  }
+}
