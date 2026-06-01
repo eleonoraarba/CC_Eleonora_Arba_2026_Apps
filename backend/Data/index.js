@@ -100,11 +100,16 @@ async function loadCsvData() {
     return cachedData;
   }
 
-  const fileContent = fs.readFileSync(csvPath, "utf8");
-  cachedData = parseCsvContent(fileContent);
-  return cachedData;
+  try{
+    const fileContent = await readDatasetCsvFromCloud();
+    cachedData = parseCsvContent(fileContent);
+    return cachedData;
+  }catch(error){
+    const fileContent = fs.readFileSync(csvPath, "utf8");
+    cachedData = parseCsvContent(fileContent);
+    return cachedData;
+  }
 }
-
 
 module.exports = async function data(context, req) {
   const request = startRequest(context, req, "/api/data");
